@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { AdSlot } from "@/components/AdSlot";
+import { ConditionLogCallout } from "@/components/ConditionLogCallout";
 import { CategoryPills } from "@/components/CategoryPills";
 import { GuideCard } from "@/components/GuideCard";
 import { SearchBox } from "@/components/SearchBox";
@@ -36,6 +37,9 @@ function GuideIndex({
       </div>
       <div className="mt-5">
         <CategoryPills active={category} />
+      </div>
+      <div className="mt-8">
+        <ConditionLogCallout compact />
       </div>
       <p className="mt-8 text-sm text-[var(--muted)]">
         {q ? `“${q}” 검색 · ` : null}
