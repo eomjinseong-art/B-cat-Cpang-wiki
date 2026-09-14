@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
+import { ConditionLogCallout } from "@/components/ConditionLogCallout";
 import { GuideCard } from "@/components/GuideCard";
 import { CATEGORIES } from "@/lib/categories";
 import { getAllGuides } from "@/lib/guides";
@@ -56,6 +57,10 @@ export default function HomePage() {
             guide ? <GuideCard key={guide.slug} guide={guide} featured /> : null,
           )}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-6 sm:px-6">
+        <ConditionLogCallout />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
