@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
+import { VisitorCounter } from "@/components/VisitorCounter";
 import { SHOP } from "@/lib/ads";
 
 const NAV = [
@@ -12,14 +13,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_oklab,var(--paper)_88%,transparent)] backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl tracking-tight text-[var(--ink)]">
-            냥백과
-          </span>
-          <span className="hidden text-xs text-[var(--muted)] sm:inline">
-            고양이 키우기의 모든 것
-          </span>
-        </Link>
+        <div className="flex min-w-0 items-baseline gap-3">
+          <Link href="/" className="flex items-baseline gap-2">
+            <span className="font-serif text-xl tracking-tight text-[var(--ink)]">
+              냥백과
+            </span>
+            <span className="hidden text-xs text-[var(--muted)] sm:inline">
+              고양이 키우기의 모든 것
+            </span>
+          </Link>
+          <VisitorCounter />
+        </div>
         <nav className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex">
           {NAV.map((item) => (
             <Link
