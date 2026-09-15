@@ -35,43 +35,54 @@ function parseCount(payload: unknown) {
   return value;
 }
 
+let pendingCount: Promise<number | null> | null = null;
+
+function loadVisitCount() {
+  if (pendingCount) return pendingCount;
+
+  pendingCount = (async () => {
+    const storageOk = canUseStorage();
+    const lastHit = storageOk ? localStorage.getItem(STORAGE_KEY) : null;
+    const today = todayKey();
+    const shouldHit = storageOk && lastHit !== today;
+    if (shouldHit) {
+      localStorage.setItem(STORAGE_KEY, today);
+    }
+
+    const endpoint = shouldHit ? "hit" : "get";
+    const response = await fetch(
+      `${ABACUS_BASE}/${endpoint}/${NAMESPACE}/${KEY}`,
+      { cache: "no-store" },
+    );
+    if (!response.ok) {
+      if (shouldHit) localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+
+    const next = parseCount(await response.json());
+    if (next === null && shouldHit) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+    return next;
+  })();
+
+  return pendingCount;
+}
+
 export function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    async function load() {
-      try {
-        const storageOk = canUseStorage();
-        const lastHit = storageOk ? localStorage.getItem(STORAGE_KEY) : null;
-        const today = todayKey();
-        const shouldHit = storageOk && lastHit !== today;
-        if (shouldHit) {
-          localStorage.setItem(STORAGE_KEY, today);
-        }
-        const endpoint = shouldHit ? "hit" : "get";
-        const response = await fetch(
-          `${ABACUS_BASE}/${endpoint}/${NAMESPACE}/${KEY}`,
-          { cache: "no-store" },
-        );
-        if (!response.ok) {
-          if (shouldHit) localStorage.removeItem(STORAGE_KEY);
-          return;
-        }
-
-        const next = parseCount(await response.json());
-        if (next === null) {
-          if (shouldHit) localStorage.removeItem(STORAGE_KEY);
-          return;
-        }
-        if (!cancelled) setCount(next);
-      } catch {
+    loadVisitCount()
+      .then((next) => {
+        if (!cancelled && next !== null) setCount(next);
+      })
+      .catch(() => {
         // Hide on failure.
-      }
-    }
+      });
 
-    void load();
     return () => {
       cancelled = true;
     };
