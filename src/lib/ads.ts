@@ -33,7 +33,7 @@ export const ADS: Record<AdVariant, AdCopy> = {
     cta: "숨숨마을에서 보기",
   },
   strip: {
-    title: "숨숨마을에서 보기",
+    title: "고양이와 집사를 위한 용품",
     body: "가이드에서 다룬 돌봄과 이어지는 고양이 용품을 한곳에서 둘러보세요.",
     cta: "숨숨마을에서 보기",
   },
@@ -97,6 +97,7 @@ const GUIDE_TOPICS: Record<string, ShopTopicId[]> = {
   "03-saryo-yeongyang": ["feed", "treats"],
   "04-hwajangsil": ["litter", "hygiene"],
   "05-geongang": ["feed"],
+  "06-eunggeup-dokseong": [],
   "07-grooming": ["grooming"],
   "08-body-language": ["toys"],
   "09-munje-haengdong": ["tower", "toys"],
@@ -104,13 +105,16 @@ const GUIDE_TOPICS: Record<string, ShopTopicId[]> = {
   "11-saeng-ae": ["feed", "grooming"],
   "12-yongpum": ["hygiene", "tower", "feed"],
   "13-damyo": ["hygiene", "tower"],
+  "14-anjeon-yeohaeng": [],
+  "15-sinhwa-faq": [],
+  "16-ileol-ttaen": [],
   "17-jeolyak-diy-tip": ["toys", "hygiene"],
 };
 
 const CATEGORY_TOPICS: Record<string, ShopTopicId[]> = {
   start: ["hygiene", "tower"],
   daily: ["feed", "hygiene"],
-  health: ["feed"],
+  health: [],
   behavior: ["toys", "tower"],
   environment: ["toys", "tower"],
   products: ["hygiene", "tower", "feed"],
