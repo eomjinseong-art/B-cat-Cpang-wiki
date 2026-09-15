@@ -28,13 +28,14 @@ npm run dev
 
 `content/guides/`에 마크다운 파일을 넣고 상단에 `title`, `description`, `category`, `tags`, `order`, `readMinutes`를 적으면 목록에 자동으로 나타납니다. push만 하면 자동 배포됩니다.
 
-## 광고 (숨숨마을) 수정
+## 숨숨마을 추천 수정
 
-- 광고 문구·링크: `src/lib/ads.ts`
-- 광고 디자인: `src/components/AdSlot.tsx`
-- 노출 위치: 글 본문 중간(자동), 페이지 하단(푸터 위), 홈·목록 중간
+- 문구·관련 주제 매핑·링크: `src/lib/ads.ts` (항상 숨숨마을로만 연결합니다. 쿠팡 URL을 넣지 마세요.)
+- 글 하단 관련 용품 카드: `src/components/ShopPromo.tsx`
+- 본문 중간·페이지 하단 슬롯: `src/components/AdSlot.tsx`
+- 노출 위치: 가이드 본문 뒤(관련 용품), 본문 중간(기존 1회), 홈·목록 하단 얇은 띠
 
-광고 링크나 문구를 바꾸고 싶을 때는 `src/lib/ads.ts`만 수정하면 됩니다.
+추천 링크나 문구를 바꾸고 싶을 때는 `src/lib/ads.ts`만 수정하면 됩니다.
 
 ## 다운로드
 

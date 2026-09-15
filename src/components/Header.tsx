@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { VisitorCounter } from "@/components/VisitorCounter";
-import { SHOP } from "@/lib/ads";
+import { SHOP_LINK_REL, shopUrl } from "@/lib/ads";
 
 const NAV = [
   { href: "/guides", label: "전체 글" },
@@ -35,9 +35,9 @@ export function Header() {
             </Link>
           ))}
           <a
-            href={SHOP.url}
+            href={shopUrl()}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={SHOP_LINK_REL}
             className="rounded-full bg-[var(--terracotta)] px-3 py-1.5 text-white hover:bg-[var(--ink)]"
           >
             용품 보기
@@ -70,9 +70,9 @@ export function Header() {
               </Link>
             ))}
             <a
-              href={SHOP.url}
+              href={shopUrl()}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={SHOP_LINK_REL}
               className="block rounded-xl bg-[var(--terracotta)] px-3 py-2 text-sm text-white"
             >
               용품 보기

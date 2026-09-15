@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { AdSlot } from "@/components/AdSlot";
 import { ConditionLogCallout } from "@/components/ConditionLogCallout";
 import { GuideCard } from "@/components/GuideCard";
+import { ShopStrip } from "@/components/ShopPromo";
 import { CATEGORIES } from "@/lib/categories";
 import { getAllGuides } from "@/lib/guides";
 
@@ -61,10 +61,6 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-6 sm:px-6">
         <ConditionLogCallout />
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <AdSlot />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -134,6 +130,10 @@ export default function HomePage() {
             <GuideCard key={guide.slug} guide={guide} />
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
+        <ShopStrip />
       </section>
     </main>
   );

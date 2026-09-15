@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/Markdown";
+import { RelatedShopPromo } from "@/components/ShopPromo";
 import { TableOfContents } from "@/components/TableOfContents";
 import { categoryLabel } from "@/lib/categories";
 import { extractHeadings, getAllGuides, getGuide } from "@/lib/guides";
@@ -76,6 +77,7 @@ export default async function GuidePage({
       <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_220px]">
         <article>
           <Markdown content={guide.content} />
+          <RelatedShopPromo slug={guide.slug} category={guide.category} />
         </article>
         <TableOfContents headings={headings} />
       </div>
