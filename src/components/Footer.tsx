@@ -1,4 +1,4 @@
-import { SHOP } from "@/lib/ads";
+import { SHOP_LINK_REL, shopUrl } from "@/lib/ads";
 
 export function Footer() {
   return (
@@ -12,9 +12,9 @@ export function Footer() {
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
           <a
-            href={SHOP.url}
+            href={shopUrl()}
             target="_blank"
-            rel="noopener noreferrer"
+            rel={SHOP_LINK_REL}
             className="text-[var(--terracotta)] hover:underline"
           >
             우리 아이 용품이 궁금하다면 → 숨숨마을

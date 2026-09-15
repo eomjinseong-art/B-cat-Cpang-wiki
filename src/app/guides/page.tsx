@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import { AdSlot } from "@/components/AdSlot";
 import { ConditionLogCallout } from "@/components/ConditionLogCallout";
 import { CategoryPills } from "@/components/CategoryPills";
 import { GuideCard } from "@/components/GuideCard";
 import { SearchBox } from "@/components/SearchBox";
+import { ShopStrip } from "@/components/ShopPromo";
 import { categoryLabel } from "@/lib/categories";
 import { getAllGuides, searchGuides } from "@/lib/guides";
 
@@ -56,19 +56,14 @@ function GuideIndex({
         </div>
       ) : (
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {guides.slice(0, 3).map((guide) => (
-            <GuideCard key={guide.slug} guide={guide} />
-          ))}
-          {guides.length > 3 ? (
-            <div className="sm:col-span-2 lg:col-span-3">
-              <AdSlot variant="list" />
-            </div>
-          ) : null}
-          {guides.slice(3).map((guide) => (
+          {guides.map((guide) => (
             <GuideCard key={guide.slug} guide={guide} />
           ))}
         </div>
       )}
+      <div className="mt-12">
+        <ShopStrip />
+      </div>
     </main>
   );
 }

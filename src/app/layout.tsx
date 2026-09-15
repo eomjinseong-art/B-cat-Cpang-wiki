@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { AdSlot } from "@/components/AdSlot";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SITE_URL } from "@/lib/site";
@@ -65,9 +64,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <Header />
         {children}
-        <div className="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6">
-          <AdSlot variant="banner" />
-        </div>
         <Footer />
       </body>
     </html>
