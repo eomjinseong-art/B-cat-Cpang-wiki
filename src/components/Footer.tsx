@@ -1,3 +1,4 @@
+import { CoupangBanner } from "@/components/CoupangBanner";
 import { SHOP_LINK_REL, shopUrl } from "@/lib/ads";
 
 export function Footer() {
@@ -24,6 +25,7 @@ export function Footer() {
             마크다운 17편과 사이트 소스 다운로드
           </a>
         </div>
+        <CoupangBanner />
         <p className="mt-6 text-xs text-[var(--muted)]">
           원문은 <code className="rounded bg-[var(--paper)] px-1">content/guides</code> 폴더의
           마크다운입니다.
