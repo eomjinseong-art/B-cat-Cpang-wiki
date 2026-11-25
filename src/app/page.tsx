@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import Link from "next/link";
 import { ConditionLogCallout } from "@/components/ConditionLogCallout";
 import { GuideCard } from "@/components/GuideCard";
@@ -63,6 +64,7 @@ export default function HomePage() {
         <ConditionLogCallout />
       </section>
 
+      <NadooAd inline />
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <h2 className="font-serif text-2xl">파일로 가져가기</h2>
         <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">

@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Markdown } from "@/components/Markdown";
@@ -58,6 +59,7 @@ export default async function GuidePage({
       </h1>
       <p className="mt-4 max-w-2xl text-[var(--muted)]">{guide.description}</p>
       <p className="mt-3 text-sm text-[var(--muted)]">읽는 시간 약 {guide.readMinutes}분</p>
+      <NadooAd inline />
       <div className="mt-5 flex flex-wrap gap-2">
         <a
           href={`/api/download/md/${guide.slug}`}

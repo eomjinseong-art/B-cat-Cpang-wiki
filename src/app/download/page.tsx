@@ -1,3 +1,4 @@
+import { NadooAd } from "@/components/NadooAd";
 import { Download, FileArchive, FolderCode } from "lucide-react";
 import Link from "next/link";
 import { getAllGuides } from "@/lib/guides";
@@ -21,6 +22,7 @@ export default function DownloadPage() {
         </li>
       </ol>
 
+      <NadooAd inline />
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <div className="rounded-3xl border border-[var(--line)] bg-[var(--card)] p-6">
           <FileArchive className="h-8 w-8 text-[var(--terracotta)]" />
