@@ -1,3 +1,5 @@
+import Script from "next/script";
+import { NadooAd } from "@/components/NadooAd";
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -64,7 +66,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <Header />
         {children}
+        <NadooAd />
         <Footer />
+        <Script src="https://nadoo-ads.vercel.app/ads.js" strategy="afterInteractive" />
       </body>
     </html>
   );
